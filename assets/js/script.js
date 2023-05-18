@@ -64,3 +64,44 @@ function getCity(city) {
       //append it to the five day div
     });
 }
+
+function getCityAgain(city) {
+  var forecastUrl =
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&appid=" +
+    apiKey +
+    "&units=imperial";
+  fetch(forecastUrl)
+    .then(function (response) {
+      return response.json();
+    })
+
+    .then(function (data) {
+      console.log(data);
+      console.log("hello");
+
+      document.getElementById("forecast-weather").innerHTML = "";
+      for (var i = 7; i < data.list.length; i += 8) {
+        var forecastDay = data.list[i];
+
+        var forecastDateEl = document.createElement("p");
+        forecastDateEl.innerText = dayjs
+          .unix(forecastDay.dt)
+          .format("MM-DD-YYYY");
+        document.getElementById("forecast-weather").appendChild(forecastDateEl);
+      }
+
+      var cityFiveEl = document.createElement("h2");
+      cityFiveEl.innerText = data.list.city[i].name;
+      document.getElementById("forecast-weather").appendChild(cityFiveEl);
+
+      var dateFiveEl = document.createElement("span");
+      dateFiveEl.innerText = dayjs.unix(data.list[i].dt).format("MM-DD-YYYY");
+      document.getElementById("forecast-weather").appendChild(dateFiveEl);
+
+      var windspeedFiveEl = document.createElement("p");
+      windspeedFiveEl.innerText = "Wind speed: " + data.list.wind[i].speed;
+      document.getElementById("forecast-weather").appendChild(windspeedFiveEl);
+    });
+}
