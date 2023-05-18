@@ -5,8 +5,8 @@ searchButton.addEventListener("click", getWeather);
 function getWeather() {
   var cityInput = document.getElementById("city-search");
   var city = cityInput.value;
-  //   alert(city);
   getCity(city);
+  getCityAgain(city);
 }
 function getCity(city) {
   var url =
@@ -48,20 +48,6 @@ function getCity(city) {
       var windspeedEl = document.createElement("p");
       windspeedEl.innerText = "Wind speed: " + data.wind.speed;
       document.getElementById("current-weather").appendChild(windspeedEl);
-
-      //do a fetch request for the 5 day data (different URL)
-      //with the 5 day data, do a for loop
-      //for loop should start on 7 (i should be 7) loop over the list.length and increase the i variable by
-      //8 each time (instead of i++ it will be i=8)
-      //the api offers objects every 3 hours which will total 40. Therefore we need to offset
-      //by 8 to get the next day.
-
-      //inside the loop we will use the same
-      //create the element in js and assign in a var
-      //adjust the elements (or image) in text to the data
-
-      // ex. windspeedEl.innerText = "Wind speed: " + data.list[i].wind.speed;
-      //append it to the five day div
     });
 }
 
@@ -76,32 +62,32 @@ function getCityAgain(city) {
     .then(function (response) {
       return response.json();
     })
-
     .then(function (data) {
       console.log(data);
-      console.log("hello");
 
       document.getElementById("forecast-weather").innerHTML = "";
       for (var i = 7; i < data.list.length; i += 8) {
         var forecastDay = data.list[i];
-
         var forecastDateEl = document.createElement("p");
         forecastDateEl.innerText = dayjs
           .unix(forecastDay.dt)
           .format("MM-DD-YYYY");
         document.getElementById("forecast-weather").appendChild(forecastDateEl);
+        var forecastWindspeedEl = document.createElement("p");
+        forecastWindspeedEl.innerText =
+          "Wind speed: " + data.list[i].wind.speed;
+        document
+          .getElementById("forecast-weather")
+          .appendChild(forecastWindspeedEl);
+        var forecastTempEl = document.createElement("p");
+        forecastTempEl.innerText = "Temp: " + data.list[i].main.temp;
+        document.getElementById("forecast-weather").appendChild(forecastTempEl);
+        var forecastHumidityEl = document.createElement("p");
+        forecastHumidityEl.innerText =
+          "Humidity: " + data.list[i].main.humidity;
+        document
+          .getElementById("forecast-weather")
+          .appendChild(forecastHumidityEl);
       }
-
-      var cityFiveEl = document.createElement("h2");
-      cityFiveEl.innerText = data.list.city[i].name;
-      document.getElementById("forecast-weather").appendChild(cityFiveEl);
-
-      var dateFiveEl = document.createElement("span");
-      dateFiveEl.innerText = dayjs.unix(data.list[i].dt).format("MM-DD-YYYY");
-      document.getElementById("forecast-weather").appendChild(dateFiveEl);
-
-      var windspeedFiveEl = document.createElement("p");
-      windspeedFiveEl.innerText = "Wind speed: " + data.list.wind[i].speed;
-      document.getElementById("forecast-weather").appendChild(windspeedFiveEl);
     });
 }
