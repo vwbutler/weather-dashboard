@@ -1,0 +1,92 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-color: wheat;
+}
+
+body {
+  background-color: deepskyblue;
+}
+
+h1 {
+  display: block;
+  color: white;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h2 {
+  display: block;
+  color: white;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h3 {
+  display: block;
+  color: purple;
+  font-size: x-large;
+  font-weight: bolder;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+.navibar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: darkslateblue;
+  border-radius: 5%;
+}
+
+#forecast-weather {
+  display: flex;
+}
+
+/* .forecastrow {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* flex-direction: column; */
+/* align-items: center;
+  background-color: chartreuse;
+  border-radius: 5%;
+} */
+.forecastrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Adjust as needed */
+  background-color: chartreuse;
+}
+
+.fcard {
+  width: calc(100% - 10px); /* Adjust the width as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+  padding: 10px;
+  background-color: hotpink;
+  border-radius: 5px;
+}
