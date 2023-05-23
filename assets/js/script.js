@@ -47,7 +47,7 @@ function getCity(city) {
       var lat = data.coord.lat;
       var long = data.coord.lon;
       document.getElementById("current-weather").innerHTML = "";
-      var cityEl = document.createElement("h2");
+      var cityEl = document.createElement("h3");
       cityEl.innerText = data.name;
       document.getElementById("current-weather").appendChild(cityEl);
 

@@ -11,64 +11,37 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="navibar">
-        <!-- <div class="col"><h1 class="text-center">Weather Dashboard</h1></div> -->
+    <div class="main">
+      <div class="navbar">
         <h1>Weather Dashboard</h1>
       </div>
-      <!-- <div class="row"> -->
-
-        <div class="container">
-          <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-          <div class="row">
-            <div class="col-md-8">
-              <span>Search</span>
-              <input id="city-search" type="text" />
-              <button id="search" type="button">Search</button>
-              <div id="history">History</div>
-            </div>
-            <div class="col-6 col-md-4">
-
-              <div class="col" id="current-weather">Current Weather</div>
-            </div>
-          </div>
-
-
-
-        <!-- <div class="col-6 col-md-4">
-          <div>
-              <span>Search</span>
-              <input id="city-search" type="text" />
-              <button id="search" type="button">Search</button>
-            </div> -->
-
-          <!-- <div id="history">History</div>
-        </div> -->
-        <div class="col">
-        <div class="container">
-          <div class="row">
-            <div class="col" id="current-weather">Current Weather</div>
-         </div>
-         <div class="fcard" id="forecast-weather"> -->
-           <div class="forecastrow" id="forecast-weather">
-          <div class="d-flex">
-            <div class="card" id="forecast-weather">
-        <div class="col">Five Day</div>
-
-         </div>
+      <div class="container">
+        <div class="city-search">
+          <h3>Search for a city</h3>
+          <input id="city-search" type="text" />
+          <button id="search" button type="button" class="search-button">
+            Search
+          </button>
+          <h3>Recent Searches</h3>
+        </div>
+        <div id="history"></div>
+      </div>
+      <div id="current-weather">
+        <h3>Current Weather</h3>
+      </div>
+      <div id="forecast-weather">
+        <h3>Five Day Forecast</h3>
+      </div>
     </div>
 
-
-
-
-
-  <script
-    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
-  <script src="assets/js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
